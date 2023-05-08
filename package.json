@@ -1,0 +1,23 @@
+{
+  "name": "bluebot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "start": "tsc && node ."
+  },
+  "keywords": [],
+  "author": "M.D. Walters, SUSSYBAKALOL1",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "meowerbot": "^1.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.40.0",
+    "typescript": "^5.0.4"
+  }
+}
