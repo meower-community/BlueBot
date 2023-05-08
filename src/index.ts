@@ -2,16 +2,22 @@
 import Bot from "meowerbot";
 import { config } from "dotenv";
 import { Context } from "../lib/interfaces";
+import fetch from "node-fetch";
 
 config();
 
 const bot = new Bot();
 const commands: string[] = [
-    `@${process.env.BB_USERNAME} help`
+    "help",
+    "whois"
 ];
 
 bot.onCommand("help", (ctx: Context) => {
     ctx.reply(`Commands:\n\t${commands.join("\n\t")}`);
+});
+
+bot.onCommand("whois", async (ctx: Context) => {
+    let user: any = await fetch(`https://api.meower.org/users/${args[0]}`).then(res => res.json());
 });
 
 bot.onLogin(() => {

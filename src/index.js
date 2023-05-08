@@ -4,10 +4,14 @@ import { config } from "dotenv";
 config();
 const bot = new Bot();
 const commands = [
-    `@${process.env.BB_USERNAME} help`
+    "help",
+    "whois"
 ];
 bot.onCommand("help", (ctx) => {
-    ctx.reply(`Commands:\n${commands.join("\n\t")}`);
+    ctx.reply(`Commands:\n\t${commands.join("\n\t")}`);
+});
+bot.onCommand("whois", (ctx) => {
+    ctx.reply(`no`);
 });
 bot.onLogin(() => {
     bot.post("BlueBot is now online!", null);
