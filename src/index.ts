@@ -2,7 +2,6 @@
 import Bot from "meowerbot";
 import { config } from "dotenv";
 import { Context } from "../lib/interfaces";
-import fetch from "node-fetch";
 
 config();
 
@@ -17,11 +16,13 @@ bot.onCommand("help", (ctx: Context) => {
 });
 
 bot.onCommand("whois", async (ctx: Context) => {
-    let user: any = await fetch(`https://api.meower.org/users/${args[0]}`).then(res => res.json());
+    let user: any = await fetch(`https://api.meower.org/users/${ctx.args[1]}`).then(res => res.json());
+    console.log(ctx);
+    ctx.reply(`${user._id}\n\t`);
 });
 
 bot.onLogin(() => {
-    bot.post("BlueBot is now online!", null);
+    // bot.post("BlueBot is now online!", null);
 });
 
 bot.login(process.env.BB_USERNAME, process.env.BB_PASSWORD);
